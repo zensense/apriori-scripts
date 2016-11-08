@@ -1,12 +1,10 @@
 # apriori-algo.py
 
-'''
+"""
 Algo tool for parsing assignment data and writing assignment out
 Apriori Algo: p.250-253 Chapter 6 Mining Frequent Patterns, Associations, and Correlations
 
 minsup = 0.01
-absup > 771
-file-in: ./categories.txt
 
 see https://pypi.python.org/pypi/apyori/1.1.1
 see http://www.borgelt.net/docs/apriori.pdf (pseudocode)
@@ -15,11 +13,7 @@ see http://www.kdnuggets.com/2016/04/association-rules-apriori-algorithm-tutoria
 # itertools
 see http://jmduke.com/posts/a-gentle-introduction-to-itertools/
 see https://docs.python.org/2/library/itertools.html
-
-https://github.com/asaini/Apriori/blob/master/apriori.py
-
-'''
-
+"""
 
 import os
 import sys
@@ -37,7 +31,7 @@ class FreqItemMiner(object):
     def data_from_file(self):
         file_iter = open(self.file_data, 'rU')
         for line in file_iter:
-            record = frozenset(line.split(';'))
+            record = frozenset([x.strip() for x in line.split(';')])
             yield record
 
     def build_transaction_items_lists(self, iterator):
@@ -57,9 +51,8 @@ class FreqItemMiner(object):
         return items, transactions
 
     def mine_min_sup_items(self, itemset, transaction_list, freqset):
-        """calculates the support for items in the itemSet and returns a subset
-       of the itemSet each of whose elements satisfies the minimum support"""
-        # TODO: add support number to output
+        # calculate the support for items in the itemSet and return a subset
+        # of the itemset each satisfying the min_sup
         _itemset = set()
         localset = defaultdict(int)
 

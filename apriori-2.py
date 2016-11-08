@@ -1,18 +1,14 @@
 # apriori-algo.py
 
-'''
+"""
 Algo tool for parsing assignment data and writing assignment out
 Apriori Algo: p.250-253 Chapter 6 Mining Frequent Patterns, Associations, and Correlations
 
 minsup = 0.01
-absup > 771
-file-in: ./categories.txt
 
 see https://pypi.python.org/pypi/apyori/1.1.1
 see http://www.borgelt.net/docs/apriori.pdf (pseudocode)
-
-'''
-
+"""
 
 import os
 import sys
